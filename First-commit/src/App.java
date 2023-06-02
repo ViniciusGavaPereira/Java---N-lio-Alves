@@ -5,6 +5,6 @@ public class App {
         Locale.setDefault(Locale.US);
 
 
-       ExercicioSaidaDeDados.exercicioImprimir();
+       CastingExample.castingExample();
     }
 }
