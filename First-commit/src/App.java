@@ -5,6 +5,6 @@ public class App {
        Locale.setDefault(Locale.US);
 
 
-      ScannerExample.scannerExample();
+        EstruturaSequencial_Exercicios.Exercicio6();
     }
 }
