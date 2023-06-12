@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ExerciciosDoCurso {
+public class ExerciciosWhile {
 
     static void exercicio1(){
 
@@ -102,5 +102,7 @@ public class ExerciciosDoCurso {
             System.out.println("MUITO OBRIGADO");
             
             System.out.printf("ÁLCOOL: %d\nGASOLINA: %d\nDIESEL: %d",alcool,gasolina,diesel);
+
+            sc.close();
     }
 }
