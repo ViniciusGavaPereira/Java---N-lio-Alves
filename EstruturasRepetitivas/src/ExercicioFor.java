@@ -19,4 +19,33 @@ public class ExercicioFor {
 
         sc.close();
     }
+
+    public static void Exercicio2(){
+        
+        
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Digite quantos números vão entrar: ");
+        int N = sc.nextInt();
+        int in = 0, out = 0;
+
+    
+        for(int x = 0 ; x < N ; x++){
+
+            System.out.print("Valor para inserir: ");
+            int y = sc.nextInt();
+
+            if(y > 10 && y < 20 ){
+                in++;
+            }else{
+                out++;
+            }
+
+        }
+
+        System.out.printf("Valores:\nIN: %d\nOUT: %d", in,out);
+        sc.close();
+    
+    }
+
 }
