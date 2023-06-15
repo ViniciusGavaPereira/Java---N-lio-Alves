@@ -1,6 +1,8 @@
 import java.util.Locale;
 import java.util.Scanner;
 
+import javax.xml.transform.Source;
+
 public class ExercicioFor {
     
     public static void Exercicio1(){
@@ -75,5 +77,37 @@ public class ExercicioFor {
             sc.close();
     }
 
+    public static void Exercicio4(){
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Digite quantas contas serão feitas: ");
+        int N = sc.nextInt();
+        
+
+        for(int z = 0 ; z < N ; z++){
+
+
+            System.out.print("Defina o valor de X: ");
+            float x = sc.nextFloat();
+
+            System.out.print("Defina o valor de Y: ");
+            float y = sc.nextFloat();
+
+            if(y == 0){
+                System.out.println("Divisão impossível");
+            }else{
+
+                float resposta = x / y;
+                System.out.printf("Resposta final: %.1f\n", resposta);
+
+            }
+
+          
+        }
+
+        sc.close();
+
+    }
 
 }
