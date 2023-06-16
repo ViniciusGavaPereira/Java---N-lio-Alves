@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Scanner;
+
 public class Triangle {
     
     public double a;
@@ -37,5 +39,20 @@ public class Triangle {
         this.c = c;
     }
 
-   
+   public double calcularArea(){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Defina as medidas do triãngulo X: ");
+        a = sc.nextDouble();
+        b = sc.nextDouble();
+        c = sc.nextDouble();
+
+        double p = (a + b + c) / 2.0;
+        double areaX = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+
+        System.out.printf("Triangulo de X: %.4f", areaX);
+        sc.close();
+         
+        return areaX;
+   }
 }

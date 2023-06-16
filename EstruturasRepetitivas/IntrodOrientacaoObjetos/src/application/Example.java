@@ -62,8 +62,12 @@ public class Example {
         System.out.printf("Triangulo de X: %.4f \nTriangulo de Y: %.4f", areaX, areaY);
         sc.close();
  
-        
+    }
 
+    public static void example3(){
+         Triangle x = new Triangle();
+         x.calcularArea();
+         
     }
 
 }
