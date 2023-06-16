@@ -1,7 +1,6 @@
 import java.util.Locale;
 import java.util.Scanner;
 
-import javax.xml.transform.Source;
 
 public class ExercicioFor {
     
