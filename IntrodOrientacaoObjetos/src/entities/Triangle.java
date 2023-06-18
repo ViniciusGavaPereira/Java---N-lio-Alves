@@ -55,4 +55,11 @@ public class Triangle {
          
         return areaX;
    }
+
+    @Override
+    public String toString() {
+        return "Triangle [a=" + a + ", b=" + b + ", c=" + c + "]";
+    }
+
+   
 }
