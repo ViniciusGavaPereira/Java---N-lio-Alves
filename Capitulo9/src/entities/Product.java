@@ -6,7 +6,24 @@ public class Product {
     private double price;
     private int quantity;
 
+    public Product() {
+         
+    }
+
+
+    public Product(String name, double  price){
+        this.name = name;
+        this.price = price;
+        //Não precisa da palavra this. neste caso, pois não existe um parametro com o mesmo nome, logo não tem duplicidade
+        quantity = 1;
+    }
+
     
+    public Product(String name, double price, int quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
 
     public String getName() {
         return name;
@@ -37,28 +54,17 @@ public class Product {
         this.quantity = quantity;
     }
 
-
-    public Product() {
-         
+    public String toString() {
+            return name
+                    + ", $ "
+                    + String.format("%.2f", price)
+                    + ", "
+                    + quantity
+                    + " units, Total: $ "
+                    + String.format("%.2f", totalValueInStock());
     }
-
-
-    public Product(String name, double  price){
-        this.name = name;
-        this.price = price;
-        //Não precisa da palavra this. neste caso, pois não existe um parametro com o mesmo nome, logo não tem duplicidade
-        quantity = 1;
-    }
+        
     
-
-    public Product(String name, double price, int quantity) {
-        this.name = name;
-        this.price = price;
-        this.quantity = quantity;
-    }
-
-
-
     public double totalValueInStock() {
         return price * quantity;
     }
@@ -71,13 +77,4 @@ public class Product {
         this.quantity -= quantity;
     }
 
-    public String toString() {
-        return name
-                + ", $ "
-                + String.format("%.2f", price)
-                + ", "
-                + quantity
-                + " units, Total: $ "
-                + String.format("%.2f", totalValueInStock());
-    }
 }
