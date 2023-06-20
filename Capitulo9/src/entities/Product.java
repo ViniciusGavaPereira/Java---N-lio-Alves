@@ -6,9 +6,17 @@ public class Product {
     public double price;
     public int quantity;
 
-    
 
-  
+    public Product() {
+    }
+
+
+    public Product(String name, double  price){
+        this.name = name;
+        this.price = price;
+        //Não precisa da palavra this. neste caso, pois não existe um parametro com o mesmo nome, logo não tem duplicidade
+        quantity = 0;
+    }
     
 
     public Product(String name, double price, int quantity) {
