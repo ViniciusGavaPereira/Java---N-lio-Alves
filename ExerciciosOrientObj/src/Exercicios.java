@@ -39,6 +39,20 @@ public class Exercicios {
     }
 
     public static void Exericio3(){
-        
+        Scanner sc = new Scanner(System.in);
+        Student student = new Student();
+
+        System.out.print("Digite a primeira nota: ");
+        student.grade1 = sc.nextDouble();
+
+        System.out.print("Digite a segunda nota: ");
+        student.grade2 = sc.nextDouble();
+
+
+        System.out.print("Digite a terceira nota: ");
+        student.grade3 = sc.nextDouble();
+
+        student.finalGrade();
+        sc.close();
     }
 }

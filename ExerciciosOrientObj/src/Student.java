@@ -21,9 +21,17 @@ public class Student {
     }
 
 
-    public double finalGrade(){
-        return grade1 + grade2 + grade3;
+    public void finalGrade(){
+        double notaFinal = grade1 * 0.30 + grade2 * 0.35 + grade3 * 0.35;
+        
+        System.out.printf("Nota final: %.1f\n", notaFinal);
 
+        
+        if(notaFinal >= 6){
+            System.out.println("PASS");
+        }else{
+            System.out.println("FAILED");
+        }
     }
 
 
