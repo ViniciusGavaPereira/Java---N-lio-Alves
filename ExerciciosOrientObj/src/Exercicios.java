@@ -37,4 +37,8 @@ public class Exercicios {
 
         sc.close();
     }
+
+    public static void Exericio3(){
+        
+    }
 }
