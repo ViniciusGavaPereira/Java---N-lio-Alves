@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Exercicios {
     
+    public static final double IOF = 6.0;
 
     public static void Exercicio1(){
 
@@ -53,6 +54,26 @@ public class Exercicios {
         student.grade3 = sc.nextDouble();
 
         student.finalGrade();
+        sc.close();
+    }
+
+
+
+    public static void Exercicio4(){
+        Scanner sc = new Scanner(System.in);
+
+        double dolar, dolarPrice;
+
+        System.out.print("Digite o valor atual do dolar: ");
+        dolarPrice = sc.nextDouble();
+
+        System.out.print("Quantidade de dolar que vai comprar: ");
+        dolar = sc.nextDouble();
+
+        double resultado = dolar * dolarPrice;
+        resultado += (dolar * dolarPrice) * IOF / 100;
+
+        System.out.printf("Valor atual do dola: %.2f\nDoláres à serem comprados: %.2f\nValor em reais a ser pago: %.2f", dolarPrice, dolar, resultado);
         sc.close();
     }
 }
