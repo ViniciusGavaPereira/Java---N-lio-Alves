@@ -1,3 +1,4 @@
+package entities;
 public class Product {
     String name;
     double price;
@@ -8,7 +9,7 @@ public class Product {
         this.name = name;
         this.price = price;
     }
-    
+
     public String getName() {
         return name;
     }

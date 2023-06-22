@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import entities.Product;
+
 public class Vetor {
     
     public static void vetor1(){
