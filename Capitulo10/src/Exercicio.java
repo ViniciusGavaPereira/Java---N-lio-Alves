@@ -1,4 +1,3 @@
-import java.time.LocalDate;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -99,6 +98,28 @@ public class Exercicio {
             System.out.println(vect[i].toString());
         }
 
+        double alt = 0.0;
+        double menores = 0;
+       
+
+        for(int i = 0 ; i < vect.length ; i++){
+            alt += vect[i].getHeight();
+
+            if(vect[i].getAge() < 16){
+                menores++;
+            }
+        }
+
+        double porcentagem = (menores / n) * 100;
+        System.out.printf("Altura média: %.2f\n", alt / vect.length);
+        System.out.printf("Porcentagem de menores de idade: %.2f\n", porcentagem );
+
+
+        for(int i=0; i<n; i++) {
+	        if (vect[i].getAge() < 16) {
+	        	System.out.printf("%s\n", vect[i].getName());
+	        }
+	    }
 
         sc.close();
 
