@@ -2,7 +2,6 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Person;
-import entities.Product;
 
 public class Exercicio {
 

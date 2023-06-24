@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import entities.Product;
@@ -62,5 +64,35 @@ public class Vetor {
         System.out.printf("Média: %.2f",avg);
 
         sc.close();
+    }
+
+
+    public static void lista(){
+        List<String> list = new ArrayList<>();
+
+        list.add("Maria");
+        list.add("Alex");
+        list.add("Bob");
+        list.add("Anna");
+        list.add(2,"Marco");
+
+        System.out.println(list.size());
+
+
+        for(String x : list){
+            System.out.println(x);
+        }
+
+        System.out.println("----------------------------");
+
+        list.removeIf(x -> x.charAt(0) != 'M');
+
+        for(String x : list){
+            System.out.println(x);
+        }
+
+        System.out.println("----------------------------");
+        System.out.println("Index of Bob: " + list.indexOf("Bob"));
+
     }
 }
