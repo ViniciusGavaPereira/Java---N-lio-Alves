@@ -4,9 +4,11 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 
+import entities.Comment;
 import entities.Departament;
 import entities.HourContract;
 import entities.Order;
+import entities.Post;
 import entities.Worker;
 import entities.enums.OrderStatus;
 import entities.enums.WorkerLevel;
@@ -82,6 +84,28 @@ public class Exercicios {
 
        
         sc.close();
+
+    }
+
+
+    public static void exercicio2() throws ParseException{
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
+        Comment c1 = new Comment("Have a nice trip");
+        Comment c2 = new Comment("Wow that's awesome!");
+
+        Post post1 = new Post(
+        sdf.parse("21/06/2018 13:05:44"),
+        "Travelling to New Zeland",
+        "Im going to visit this wonderfull country",
+        12);
+
+        post1.AddCOmment(c1);
+        post1.AddCOmment(c2);
+
+        System.out.println(post1.toString());
+
 
     }
 }
