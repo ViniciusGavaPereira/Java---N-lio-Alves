@@ -3,7 +3,7 @@
 public class App {
     public static void main(String[] args) throws Exception {
        
-        Exercicios.exercicio2();
+        Exercicios.exercicio3();
         
 
     }

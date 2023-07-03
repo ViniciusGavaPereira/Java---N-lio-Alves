@@ -1,16 +1,19 @@
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
 import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 
+import entities.Client;
 import entities.Comment;
 import entities.Departament;
 import entities.HourContract;
 import entities.Order;
+import entities.OrderItem;
 import entities.Post;
+import entities.Product;
 import entities.Worker;
-import entities.enums.OrderStatus;
 import entities.enums.WorkerLevel;
 
 public class Exercicios {
@@ -18,7 +21,7 @@ public class Exercicios {
     public static void introducao(){
         System.out.println("Hello, World!");
 
-        Order order = new Order(1, new Date(), OrderStatus.SHIPPED);
+       /*  Order order = new Order(1, new Date(), OrderStatus.SHIPPED);
 
         System.out.println(order.toString());
 
@@ -27,7 +30,7 @@ public class Exercicios {
         OrderStatus os2 = OrderStatus.valueOf("DELIVERED");
 
         System.out.println(os1);
-        System.out.println(os2);
+        System.out.println(os2); */
     }
 
     public static void exercicio1() throws ParseException{
@@ -106,6 +109,56 @@ public class Exercicios {
 
         System.out.println(post1.toString());
 
+
+    }
+
+    public static void exercicio3() throws ParseException{
+
+        Scanner sc = new Scanner(System.in);
+        SimpleDateFormat fmt1 =  new SimpleDateFormat("dd/MM/yyyy");
+        
+        Client clt1 = new Client();
+        System.out.println("Enter client data");
+        System.out.print("Name: Vinicius\n");
+        //clt1.setName(sc.next());
+        clt1.setName("Vinicius");
+
+        System.out.print ("Email: vini-gava@outlook.com\n");
+        //clt1.setEmail(sc.next());
+        clt1.setEmail("vini-gava@outlook.com");
+      
+        
+        System.out.print("Birth date (DD/MM/YYYY): 18/01/2000\n");
+        //clt1.setBirthDate(fmt1.parse(sc.next()));
+        clt1.setBirthDate(fmt1.parse("18/01/2000"));
+       
+        Order ord1 = new Order();
+
+        System.out.println("Status: " + ord1.getStatus());
+
+
+        System.out.println("How many items to this order?" );
+        int quantity = sc.nextInt();
+
+        for(int x = 0; x < quantity; x++){
+
+            Product product = new Product();
+            System.out.println("Enter product #" + x + 1 + " item data");
+            System.out.print("Product name: ");
+            product.setName(sc.next());
+
+            System.out.print("Product price: ");
+            product.setPrice(sc.nextInt());
+
+            System.out.print("Product quantity ");
+            Integer quant = sc.nextInt();
+
+            OrderItem orderItem = new OrderItem(quant, product);
+
+            ord1.addItem(orderItem);
+
+            sc.close();
+        }
 
     }
 }
