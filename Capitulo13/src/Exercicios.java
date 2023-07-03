@@ -116,7 +116,10 @@ public class Exercicios {
 
         Scanner sc = new Scanner(System.in);
         SimpleDateFormat fmt1 =  new SimpleDateFormat("dd/MM/yyyy");
-        
+        Order ord1 = new Order();
+
+
+
         Client clt1 = new Client();
         System.out.println("Enter client data");
         System.out.print("Name: Vinicius\n");
@@ -132,7 +135,7 @@ public class Exercicios {
         //clt1.setBirthDate(fmt1.parse(sc.next()));
         clt1.setBirthDate(fmt1.parse("18/01/2000"));
        
-        Order ord1 = new Order();
+        ord1.setClient(clt1);
 
         System.out.println("Status: " + ord1.getStatus());
 
@@ -140,25 +143,29 @@ public class Exercicios {
         System.out.println("How many items to this order?" );
         int quantity = sc.nextInt();
 
-        for(int x = 0; x < quantity; x++){
+        for(int x = 1; x <= quantity; x++){
 
             Product product = new Product();
-            System.out.println("Enter product #" + x + 1 + " item data");
+            System.out.println("Enter product #" + x + " item data:");
             System.out.print("Product name: ");
             product.setName(sc.next());
 
             System.out.print("Product price: ");
             product.setPrice(sc.nextInt());
 
-            System.out.print("Product quantity ");
+            System.out.print("Product quantity: ");
             Integer quant = sc.nextInt();
 
             OrderItem orderItem = new OrderItem(quant, product);
 
             ord1.addItem(orderItem);
 
-            sc.close();
+            
         }
+
+        System.out.println(ord1.toString());
+        
+        sc.close();
 
     }
 }
