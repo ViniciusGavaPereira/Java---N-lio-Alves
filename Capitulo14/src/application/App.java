@@ -5,7 +5,7 @@ package application;
 public class App {
     public static void main(String[] args) throws Exception {
        
-        Exercicio.exercicio1();
+        Exercicio.exercicio2();
 
     }
 }

@@ -10,6 +10,10 @@ import entities.BusinessAccount;
 import entities.Employee;
 import entities.OutsourcedEmployee;
 import entities.SavingAccount;
+import entities.Shape;
+import entities.enums.Color;
+import entities.Rectangle;
+import entities.Circle;
 
 public class Exercicio {
 
@@ -88,5 +92,44 @@ public class Exercicio {
         }
 
         sc.close();
+    }
+
+    public static void exercicio2(){
+
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
+        List<Shape> list  = new ArrayList<>();
+
+        System.out.println("Enter the number of shapes: ");
+        int n = sc.nextInt();
+
+        for(int i = 1 ; i<=n ; i++){
+            System.out.println("Shape # " + i + " data:");
+            System.out.print("Rectangle or circle (R/C)? ");
+            char ch = sc.next().charAt(0);
+            System.out.println("Color (BLACK/BLUE/RED): ");
+            Color color = Color.valueOf(sc.next());
+
+            if(ch == 'r'){
+                System.out.print("Width: ");
+                double width = sc.nextDouble();
+                System.out.print("Height: ");
+                double height = sc.nextDouble();
+                list.add(new Rectangle(color, width, height));
+            }else{
+                 System.out.print("Radius: ");
+                double radius = sc.nextDouble();
+                list.add(new Circle(color, radius));
+            }
+
+        }
+        System.out.println("\nSHAPE AREAS");
+        for(Shape shape : list){
+            System.out.println(String.format("%.2f",shape.area()));
+        }
+
+        sc.close();
+
+
     }
 }
