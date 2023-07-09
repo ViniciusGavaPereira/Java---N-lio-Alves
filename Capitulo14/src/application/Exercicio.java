@@ -1,5 +1,7 @@
 package application;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -8,9 +10,12 @@ import java.util.Scanner;
 import entities.Account;
 import entities.BusinessAccount;
 import entities.Employee;
+import entities.ImportedProduct;
 import entities.OutsourcedEmployee;
+import entities.Product;
 import entities.SavingAccount;
 import entities.Shape;
+import entities.UsedProduct;
 import entities.enums.Color;
 import entities.Rectangle;
 import entities.Circle;
@@ -130,6 +135,48 @@ public class Exercicio {
 
         sc.close();
 
-
     }
+
+
+
+    public static void exercicioFixacao1(){
+        Scanner sc = new Scanner(System.in);
+        List<Product> list = new ArrayList<>();
+
+        System.out.print("Enter the number of products: ");
+        int n = sc.nextInt(); 
+
+        for(int i = 1 ; i <= n ; i++){
+            System.out.println("Product #" + i + " data:");
+            System.out.print("Common, used or imported (c/u/i)? ");
+            char str = sc.next().charAt(0);
+
+            System.out.print("Name: ");
+            String name = sc.next();
+
+            System.out.print("Price: ");
+            double price = sc.nextInt();
+
+            if(str == 'c'){
+                list.add(new Product(name, price));
+            }else if(str == 'u'){
+                System.out.print("Manufacture date (DD/MM/YYYY): ");
+                LocalDate date = LocalDate.parse(sc.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                list.add(new UsedProduct(name,price, date));
+            }else if(str == 'i'){
+                System.out.print("CustomsFee: ");
+                double custom = sc.nextDouble();
+                list.add(new ImportedProduct(name, price, custom));
+            }
+        }
+
+        System.out.println();
+            System.out.println("Price tag:");
+            for (Product prod : list) {
+                System.out.println(prod.priceTag());
+            }
+            
+            sc.close();
+    }
+
 }
