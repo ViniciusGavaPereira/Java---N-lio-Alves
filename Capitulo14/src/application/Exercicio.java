@@ -160,13 +160,17 @@ public class Exercicio {
             if(str == 'c'){
                 list.add(new Product(name, price));
             }else if(str == 'u'){
+
                 System.out.print("Manufacture date (DD/MM/YYYY): ");
                 LocalDate date = LocalDate.parse(sc.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
                 list.add(new UsedProduct(name,price, date));
+
             }else if(str == 'i'){
+
                 System.out.print("CustomsFee: ");
                 double custom = sc.nextDouble();
                 list.add(new ImportedProduct(name, price, custom));
+                
             }
         }
 
