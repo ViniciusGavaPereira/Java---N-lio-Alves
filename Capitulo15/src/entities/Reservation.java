@@ -50,6 +50,22 @@ public class Reservation {
         this.checkout = checkout;
     }
 
+    public String updateDatesString(Date checkIn, Date checkOut ){
+
+        
+        Date now = new Date();
+
+        if(checkIn.before(now) || checkOut.before(now)){
+            return "Erro na reserva: a data de saida da atualização precisa ser uma data futura.";
+        } if(!checkOut.after(checkIn)){
+            return "Erro na reserva: a data de entrada da atualização precisa ser uma data futura.";
+        }
+
+        this.checkin = checkin;
+        this.checkout = checkout;
+        return "Data atualizada";
+    }
+
     @Override
     public String toString(){
         return "ROOM "

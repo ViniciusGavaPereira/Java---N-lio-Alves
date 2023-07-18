@@ -9,7 +9,7 @@ import entities.Reservation;
 
 public class App {
     public static void main(String[] args) throws Exception {
-       metodoMuitoRuim();
+       metodoRuim();
         
     }
 
@@ -78,6 +78,46 @@ public class App {
                 System.out.println("Reservation: " + reservation);
             }
 
+
+        }
+
+        sc.close();
+    }
+
+    public static void metodoRuim() throws ParseException{
+        Scanner sc = new Scanner(System.in);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    
+        System.out.println("Room number");
+        //int number = sc.nextInt();
+        int number = 8021;
+
+        System.out.println("Check-in date (dd/MM/yyyy): ");
+        //Date checkIn = sdf.parse(sc.next());
+        Date checkIn = sdf.parse("12/07/2023");
+        
+        System.out.println("Check-out date (dd/MM/yyyy): ");
+        //Date checkOut = sdf.parse(sc.next());
+        Date checkOut = sdf.parse("15/07/2023");
+
+        if(!checkOut.after(checkIn)){
+            System.out.println("Erro na reserva: a data de saida precisa ser depois da data de entrada.");
+        }else{
+            Reservation reservation = new Reservation(number, checkIn, checkOut);
+            System.out.println("Reservation: " + reservation);
+
+
+             System.out.println("Check-in date (dd/MM/yyyy): ");
+            //Date checkIn = sdf.parse(sc.next());
+            checkIn = sdf.parse("19/07/2023");
+            
+            System.out.println("Check-out date (dd/MM/yyyy): ");
+            //Date checkOut = sdf.parse(sc.next());
+            checkOut = sdf.parse("10/07/2023");
+
+
+            String error = reservation.updateDatesString(checkIn, checkOut);
+            System.out.println(error);
 
         }
 
