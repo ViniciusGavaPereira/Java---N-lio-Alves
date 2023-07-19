@@ -6,6 +6,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import entities.Reservation;
+import exception.DomainException;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -36,7 +37,7 @@ public class App {
         }
     }
 
-    public static void metodoMuitoRuim() throws ParseException{
+    public static void metodoMuitoRuim() throws ParseException, DomainException{
         Scanner sc = new Scanner(System.in);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     
@@ -84,7 +85,7 @@ public class App {
         sc.close();
     }
 
-    public static void metodoRuim() throws ParseException{
+    public static void metodoRuim() throws ParseException, DomainException{
         Scanner sc = new Scanner(System.in);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     
@@ -107,21 +108,72 @@ public class App {
             System.out.println("Reservation: " + reservation);
 
 
-             System.out.println("Check-in date (dd/MM/yyyy): ");
+
+
+
+            System.out.println("Enter a date to update Check-in (dd/MM/yyyy): ");
             //Date checkIn = sdf.parse(sc.next());
             checkIn = sdf.parse("19/07/2023");
             
-            System.out.println("Check-out date (dd/MM/yyyy): ");
+            System.out.println("Enter a date to update Check-out  (dd/MM/yyyy): ");
             //Date checkOut = sdf.parse(sc.next());
             checkOut = sdf.parse("10/07/2023");
 
 
-            String error = reservation.updateDatesString(checkIn, checkOut);
-            System.out.println(error);
+            reservation.updateDates(checkIn, checkOut);
+            System.out.println("Reservation: " + reservation);
 
         }
 
         sc.close();
     }
 
-}
+     public static void metodoBom(){
+        Scanner sc = new Scanner(System.in);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    
+
+        try{
+            System.out.println("Room number");
+            //int number = sc.nextInt();
+            int number = 8021;
+
+            System.out.println("Check-in date (dd/MM/yyyy): ");
+            Date checkIn = sdf.parse(sc.next());
+            //Date checkIn = sdf.parse("12/07/2023");
+            
+            System.out.println("Check-out date (dd/MM/yyyy): ");
+            Date checkOut = sdf.parse(sc.next());
+            //Date checkOut = sdf.parse("15/07/2023");
+
+            
+            Reservation reservation = new Reservation(number, checkIn, checkOut);
+            System.out.println("Reservation: " + reservation);
+
+            System.out.println("Enter a date to update Check-in (dd/MM/yyyy): ");
+            //Date checkIn = sdf.parse(sc.next());
+            checkIn = sdf.parse("19/07/2023");
+                
+            System.out.println("Enter a date to update Check-out  (dd/MM/yyyy): ");
+            //Date checkOut = sdf.parse(sc.next());
+            checkOut = sdf.parse("10/07/2023");
+
+
+            reservation.updateDatesBom(checkIn, checkOut);
+            System.out.println("Reservation: " + reservation);
+        }catch(ParseException e){
+            System.out.println("Invalid date format");
+        }catch(DomainException e ){
+            System.out.println("Error in reservation: " + e.getMessage());
+        }catch(RuntimeException e){
+            System.out.println("Unexpected error");
+        }
+
+
+             sc.close();
+        }
+
+   
+     }
+
+
