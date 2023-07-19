@@ -5,12 +5,14 @@ import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import entities.Account;
 import entities.Reservation;
 import exception.DomainException;
 
 public class App {
     public static void main(String[] args) throws Exception {
-       metodoRuim();
+       
+        exercicioFixacao();
         
     }
 
@@ -171,6 +173,37 @@ public class App {
 
 
              sc.close();
+        }
+
+        public static void exercicioFixacao(){
+            Scanner sc = new Scanner(System.in);
+            System.out.println("ENTER ACCOUNT DATA");
+
+            System.out.print("Number: 8021\n");
+            int number = 8021;
+
+            System.out.print("Holder: Bob Brown\n");
+            String holder = "Bob Brown";
+            
+            System.out.print("Initial balance: 1000\n");
+            double initialBalance = 1000;
+
+            System.out.print("Witdraw limit: 2000\n");
+            double witdrawLimit = 2000;
+
+            try{
+                Account account = new Account(number,holder,initialBalance,witdrawLimit);
+            
+                System.out.print("Entre o quanto deseja sacar: ");
+                double witdrawAmount = sc.nextDouble(); 
+
+                account.witdraw(witdrawAmount);
+
+            }catch(DomainException e){
+                System.out.println(e.getMessage());
+            }finally{
+                sc.close();
+            }            
         }
 
    
