@@ -7,7 +7,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import entities.Circle;
 import entities.Product;
+import entities.Rectangle;
+import entities.Shape;
 
 public class Exercices {
     
@@ -81,4 +84,25 @@ public class Exercices {
             System.out.println(obj);
         }
     }
+
+    public static void genericosDelimitados(){
+        	
+		List<Shape> myShapes = new ArrayList<>();
+		myShapes.add(new Rectangle(3.0, 2.0));
+		myShapes.add(new Circle(2.0));
+		
+		List<Circle> myCircles = new ArrayList<>();
+		myCircles.add(new Circle(2.0));
+		myCircles.add(new Circle(3.0));
+		
+		System.out.println("Total area: " + totalArea(myCircles));
+    }
+
+    public static double totalArea(List<? extends Shape> list) {
+		double sum = 0.0;
+		for (Shape s : list) {
+			sum += s.area();
+		}
+		return sum;
+	}
 }
