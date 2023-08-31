@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import entities.Circle;
+import entities.Person;
 import entities.Product;
 import entities.Rectangle;
 import entities.Shape;
@@ -105,4 +106,14 @@ public class Exercices {
 		}
 		return sum;
 	}
+
+    public static void validadorHashCode(){
+        Person p1 = new Person("Maria", "maria@gmail.com");
+        Person p2 = new Person("Maria", "maria@gmail.com");
+        Person p3 = new Person("Pedro", "maria@gmail.com");
+
+        System.out.println(p1.hashCode());
+        System.out.println(p2.hashCode());
+        System.out.println(p1.equals(p2));
+    }
 }
