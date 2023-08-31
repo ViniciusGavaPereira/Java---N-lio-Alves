@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -54,6 +55,30 @@ public class Exercices {
         }catch(IOException io ){
             System.out.println("Error: " + io.getMessage());
 
+        }
+    }
+
+    public void tiposCuringa(){
+
+        // O '?' é um coringa, que permite fazer o uppcasting de tipos comuns para tipos genéricos
+        List<?> myObjs = new ArrayList<Object>();
+        List<Integer> myNumbers = new ArrayList<Integer>();
+        myObjs = myNumbers;
+
+    }
+
+
+    public static void tiposCuringaExemplo(){
+
+        // O '?' é um coringa, que permite fazer o uppcasting de tipos comuns para tipos genéricos
+        List<String> myInts = Arrays.asList("Maria", "Alex", "Bob");
+        printList(myInts);
+
+    }
+
+    public static void printList(List<?> list){
+        for(Object obj : list){
+            System.out.println(obj);
         }
     }
 }
