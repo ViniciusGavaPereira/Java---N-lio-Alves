@@ -13,11 +13,14 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import entities.Circle;
+import entities.Courses;
+import entities.Customer;
 import entities.Person;
 import entities.Product;
 import entities.Rectangle;
 import entities.Register;
 import entities.Shape;
+import entities.Teacher;
 
 public class Exercices {
     
@@ -200,4 +203,21 @@ public class Exercices {
        
     }
 
+
+    public static void exercicioResolvido2(){
+        Teacher t1 = new Teacher("Alex");
+        Customer c1 = new Customer(1, "Gabriel");
+        Customer c2 = new Customer(2, "Rafael");
+
+
+        t1.setCoursesTeacher("Curso A");
+        t1.setCoursesTeacher("Curso B");
+
+        t1.setStudentToCourse("Curso A", c1);
+        t1.setStudentToCourse("Curso B", c1);
+        t1.setStudentToCourse("Curso B", c2);
+
+        System.out.println(t1.getCourse("Curso B"));
+
+    }
 }
