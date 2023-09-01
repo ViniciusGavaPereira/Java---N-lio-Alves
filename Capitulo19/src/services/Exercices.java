@@ -1,7 +1,9 @@
 package services;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -14,6 +16,7 @@ import entities.Circle;
 import entities.Person;
 import entities.Product;
 import entities.Rectangle;
+import entities.Register;
 import entities.Shape;
 
 public class Exercices {
@@ -68,9 +71,9 @@ public class Exercices {
     public void tiposCuringa(){
 
         // O '?' é um coringa, que permite fazer o uppcasting de tipos comuns para tipos genéricos
-        List<?> myObjs = new ArrayList<Object>();
-        List<Integer> myNumbers = new ArrayList<Integer>();
-        myObjs = myNumbers;
+        //List<?> myObjs = new ArrayList<Object>();
+       // List<Integer> myNumbers = new ArrayList<Integer>();
+       // myObjs = myNumbers;
 
     }
 
@@ -113,7 +116,7 @@ public class Exercices {
     public static void validadorHashCode(){
         Person p1 = new Person("Maria", "maria@gmail.com");
         Person p2 = new Person("Maria", "maria@gmail.com");
-        Person p3 = new Person("Pedro", "maria@gmail.com");
+        //Person p3 = new Person("Pedro", "maria@gmail.com");
 
         System.out.println(p1.hashCode());
         System.out.println(p2.hashCode());
@@ -163,6 +166,38 @@ public class Exercices {
 
 
 
+    }
+
+    public static void exercicioResolvido1(){
+        String fullpath = "C:\\Users\\vini-\\Desktop\\Projetos\\Java-Nelio-Alves\\Capitulo19\\src\\txt\\acessos.txt";
+
+       
+        try(BufferedReader br = new BufferedReader(new FileReader(fullpath));){
+
+            Set<Register> set = new HashSet<>();
+
+            //Lógica de leitura de arquivos .txt
+            String line = br.readLine();
+            while(line != null){
+                String[] fields = line.split(" ");
+                set.add(new Register(fields[0], fields[1]));
+                line = br.readLine();
+            }
+
+            //Lista de usuários registrados
+            for(Register rg : set){
+                System.out.println(rg.toString());
+            }
+
+            //Lista de total de acessos com nomes DIFERENTES, para diferenciar por e-mail, é necessário alterar o hascode da classe 'Register' para separar por e-mail também
+            System.out.println("Quantidade de acessos: " + set.size());
+
+        }catch(FileNotFoundException fnf){
+            System.out.println("Error: " + fnf.getMessage());
+        }catch(IOException io){
+            io.getMessage();
+        }
+       
     }
 
 }
