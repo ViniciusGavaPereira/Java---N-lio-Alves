@@ -41,6 +41,19 @@ public class Courses {
             return "Courses [name=" + courseName+ ", students=" + students + "]";
         }
 
+        public Set<Customer> printNames() {
+            
+            Set<Customer> studentsFromCourse = new LinkedHashSet<>();
+
+            for(Customer st : students){
+                System.out.println(st.getName());
+                studentsFromCourse.addAll(students);
+               
+            }
+            return studentsFromCourse;
+        }
+
+
         @Override
         public int hashCode() {
             final int prime = 31;

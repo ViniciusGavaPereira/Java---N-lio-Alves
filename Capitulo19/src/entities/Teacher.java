@@ -34,6 +34,7 @@ public class Teacher {
                 return cs;
             }
         }
+        System.out.println("Professor não possui o  " + coursesFromTeacher);
         return null;
     }
 

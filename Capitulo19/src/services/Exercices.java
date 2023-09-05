@@ -3,17 +3,16 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 
 import entities.Circle;
-import entities.Courses;
 import entities.Customer;
 import entities.Person;
 import entities.Product;
@@ -204,20 +203,61 @@ public class Exercices {
     }
 
 
-    public static void exercicioResolvido2(){
-        Teacher t1 = new Teacher("Alex");
+    public static Set<Teacher> geracaoCurso(){
+
+        Set<Teacher> listaProfessores = new LinkedHashSet<>();
+
+
+        //Criação dos professores
+        Teacher t1 = new Teacher("Gustavo");
+        listaProfessores.add(t1);
+        Teacher t2 = new Teacher("Geovana");
+        listaProfessores.add(t2);
+        Teacher t3 = new Teacher("Gabriela");
+        listaProfessores.add(t3);
+
+
+        //Criação dos alunos
         Customer c1 = new Customer(1, "Gabriel");
         Customer c2 = new Customer(2, "Rafael");
+        Customer c3 = new Customer(2, "Miguel");
+        Customer c4 = new Customer(2, "Gabriela");
+        Customer c5 = new Customer(2, "Vitor");
+        Customer c6 = new Customer(2, "Juliano");
+        Customer c7 = new Customer(2, "Gustavo");
 
 
+
+        //Criação dos cursos para os professoresz
         t1.setCoursesTeacher("Curso A");
         t1.setCoursesTeacher("Curso B");
+        t2.setCoursesTeacher("Curso C");
+        t3.setCoursesTeacher("Curso D");
+        t3.setCoursesTeacher("Curso E");
 
+
+        //Vinculação do curso à pessoa 
         t1.setStudentToCourse("Curso A", c1);
+        t1.setStudentToCourse("Curso A", c2);
         t1.setStudentToCourse("Curso B", c1);
         t1.setStudentToCourse("Curso B", c2);
+        t1.setStudentToCourse("Curso B", c4);
+        t2.setStudentToCourse("Curso C", c4);
+        t3.setStudentToCourse("Curso D", c3);
+        t3.setStudentToCourse("Curso D", c3);
+        t3.setStudentToCourse("Curso D", c5);
+        t3.setStudentToCourse("Curso D", c6);
+        t3.setStudentToCourse("Curso D", c7);
 
-        System.out.println(t1.getCourse("Curso B"));
+        t3.setStudentToCourse("Curso E", c2);
+        t3.setStudentToCourse("Curso E", c1);
+        t3.setStudentToCourse("Curso E", c7);
+
+
+        
+        return listaProfessores;
 
     }
+
+
 }
