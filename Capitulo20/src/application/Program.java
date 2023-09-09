@@ -3,10 +3,11 @@ package application;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import entities.Product;
-import util.PriceUpdate;
 import util.ProductPredicate;
+import util.UpperCaseName;
 
 
 public class Program {
@@ -63,7 +64,7 @@ public class Program {
     }
 
     
-    public static void axampleConsumer(){
+    public static void exampleConsumer(){
   
         
     List<Product> list = new ArrayList<>();
@@ -74,9 +75,6 @@ public class Program {
         list.add(new Product("Case de notebook", 90.00));        
         list.add(new Product("Pelicula", 45.00));        
         list.add(new Product("Mouse", 49.00));        
-       
-
-
 
 
 
@@ -91,6 +89,33 @@ public class Program {
             System.out.println(p.getName() + " " + p.getPrice());
         }
    
+    }
+
+
+    public static void exampleFunction(){
+  
+        
+    List<Product> list = new ArrayList<>();
+
+        list.add(new Product("TV", 900.00));
+        list.add(new Product("Notebook", 2220.00));
+        list.add(new Product("Tablet", 450.00));        
+        list.add(new Product("Case de notebook", 90.00));        
+        list.add(new Product("Pelicula", 45.00));        
+        list.add(new Product("Mouse", 49.00));        
+
+
+        //Usando expressões lambdas inline
+        List<String> names = list.stream().map(p -> p.getName().toUpperCase()).collect(Collectors.toList());
+
+        // Usando a interface Function:
+        //List<String> names = list.stream().map(new UpperCaseName()).collect(Collectors.toList());
+
+
+
+         for(String p : names){
+            System.out.println(p);
+        }
     }
 
 
