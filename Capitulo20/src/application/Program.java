@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import entities.Product;
+import services.ProductService;
 import util.ProductPredicate;
 import util.UpperCaseName;
 
@@ -116,6 +117,27 @@ public class Program {
          for(String p : names){
             System.out.println(p);
         }
+    }
+
+
+    
+    public static void exampleFunctionInsideFunction(){
+  
+        ProductService ps = new ProductService();
+        List<Product> list = new ArrayList<>();
+
+        list.add(new Product("TV", 900.00));
+        list.add(new Product("Notebook", 2220.00));
+        list.add(new Product("Tablet", 450.00));        
+        list.add(new Product("Case de notebook", 90.00));        
+        list.add(new Product("Pelicula", 45.00));        
+        list.add(new Product("Mouse", 49.00));        
+
+
+       
+        double sum = ps.filteredSum(list, p -> p.getName().charAt(0) == 'M');
+        System.out.println(sum);
+        
     }
 
 
