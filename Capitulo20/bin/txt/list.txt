@@ -1,0 +1,4 @@
+TV,1500
+Xbox,2500
+Monitor,800
+Alter,150
